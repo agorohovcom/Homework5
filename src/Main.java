@@ -16,38 +16,30 @@ public class Main {
         }
 
         // Задача 2
-        byte clientDeviceOS = 1;
-        int clientDeviceYear = 2021;
+        byte clientDeviceOS = 0;
+        int clientDeviceYear = 2011;
 
-        if (clientDeviceOS == 0) {
-            if (clientDeviceYear < 2015) {
-                System.out.println("Установите облегченную версию приложения для iOS по ссылке\n");
-            } else {
-                System.out.println("Установите версию приложения для iOS по ссылке\n");
-            }
-        } else if (clientDeviceOS == 1) {
-            if (clientDeviceYear < 2015) {
-                System.out.println("Установите облегченную версию приложения для Android по ссылке\n");
-            } else {
-                System.out.println("Установите версию приложения для Android по ссылке\n");
-            }
+        if (clientDeviceOS == 0 && clientDeviceYear < 2015) {
+            System.out.println("Установите облегченную версию приложения для iOS по ссылке\n");
+        } else if (clientDeviceOS == 0 && clientDeviceYear >= 2015) {
+            System.out.println("Установите версию приложения для iOS по ссылке\n");
+        } else if (clientDeviceOS == 1 && clientDeviceYear < 2015) {
+            System.out.println("Установите облегченную версию приложения для Android по ссылке\n");
+        } else if (clientDeviceOS == 1 && clientDeviceYear >= 2015) {
+            System.out.println("Установите версию приложения для Android по ссылке\n");
         } else {
             System.out.println("Для вашей ОС доступна веб-версия по ссылке\n");
         }
 
         // Задача 3
-        int year = 100500;
+        int year = 10000;
         String yearInfo = year + " ";
         boolean isLeapYear = false;
 
-        if (year % 4 == 0) {
+        if (year > 1584 && year % 4 == 0 && year % 100 != 0) {
             isLeapYear = true;
-            if (year % 100 == 0) {
-                isLeapYear = false;
-            }
-            if (year % 400 == 0) {
-                isLeapYear = true;
-            }
+        } else if (year > 1584 && year % 4 == 0 && year % 400 == 0) {
+            isLeapYear = true;
         }
 
         yearInfo += isLeapYear ? "год является високосным\n" : "год не является високосным\n";
